@@ -1,0 +1,395 @@
+<!doctype html>
+
+<html>
+<head>
+	<script src="js/jquery.js"></script>
+	<script>
+		$("document").ready(function(){
+			startTesting();
+		});
+		function startTesting(){
+			testSignup();
+			     alert("Move To Next Function");
+			testAccountView();
+			     alert("Move To Next Function");
+			testAccountUpdate();
+			     alert("Move To Next Function");
+			testAccountDelete();
+			     alert("Move To Next Function");
+			
+			testLogin();
+			     alert("Move To Next Function");
+			testLoginFailure();
+			     alert("Move To Next Function");
+			
+			
+			testRequestBlood();
+			     alert("Move To Next Function");
+			testRequestView();
+			     alert("Move To Next Function");
+			testRequestUpdate();
+			     alert("Move To Next Function");
+			testRequestDelete();
+			     alert("Move To Next Function");
+			
+			
+			testDonateBlood();
+			     alert("Move To Next Function");
+			testDonateView();
+			     alert("Move To Next Function");
+			testDonateUpdate();
+			     alert("Move To Next Function");
+			testDonateDelete();
+			     alert("Move To Next Function");
+			
+			
+			testCard();
+			     alert("Move To Next Function");
+			testCardDelete();
+			     alert("Move To Next Function");
+			
+		}
+		
+		function testSignup(){
+			console.log("Testing Signup Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=SIGNUP&NAME=Ali Ahamd&CONTACT_NUMBER=0987654321&BLOOD_GROUP=1&GENDER=M&DOB=12/17/1990&LAST_DONATE=12/17/1990&LOCATION=Lahore',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					console.log(data);
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Signup Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Signup Ends");
+				}
+			});
+		}
+		
+		function testAccountView(){
+			console.log("Testing Account view Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=ACCOUNT_VIEW&USER_ID=16',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Account view Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Account view Ends");
+				}
+			});
+		}
+		
+		function testAccountUpdate(){
+			console.log("Testing updateAccount Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=ACCOUNT_UPDATE&NAME=Ammar Habib&CONTACT_NUMBER=03437218016&BLOOD_GROUP=2&GENDER=F&DOB=12/11/1990&LAST_DONATE=12/17/1995&LOCATION=Karachi&USER_ID=17',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing updataAccount Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing updataAccount Ends");
+				}
+			});
+		}
+		
+		function testAccountDelete(){
+			console.log("Testing Account Delete Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=ACCOUNT_DELETE&USER_ID=21&STATUS=2',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Account Delete Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Account Delete Ends");
+				}
+			});
+		}
+		
+		
+		function testLogin(){
+			console.log("Testing Login Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=LOGIN&CONTACT_NUMBER=03356164660&BLOOD_GROUP=0',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Login Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Login Ends");
+				}
+			});
+		}
+		
+		function testLoginFailure(){
+			console.log("Testing LoginFailure Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=LOGIN&CONTACT_NUMBER=03356164660&BLOOD_GROUP=9',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Loginfailure Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Loginfailure Ends");
+				}	
+		
+			});
+		}
+		
+		function testRequestBlood(){
+			console.log("Testing Request Blood Start");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=REQUEST_BLOOD&LONGITUDE=35.555&BLOOD_GROUP=9&LATITUDE=71.56&USER_ID=45',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Request Blood End");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Request Blood End");
+				}
+			});
+		}
+		
+		function testRequestView(){
+			console.log("Testing Request view Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=REQUEST_VIEW&USER_ID=16',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Request view Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Request view Ends");
+				}
+			});
+		}
+		function testRequestUpdate(){
+			console.log("Testing Update Request Blood Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=REQUEST_UPDATE&REQUEST_ID=19&USER_ID=16&LONGITUDE=50&LATITUDE=100&BLOOD_GROUP=8&STATUS=2',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Update Request Blood Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("TestingUpdate Request Blood Ends");
+				}
+			});
+		}
+		
+		function testRequestDelete(){
+			console.log("Testing Request Blood Delete Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=REQUEST_DELETE&REQUEST_ID=23&STATUS=2',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Request Blood Delete Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Request Blood Delete Ends");
+				}
+			});
+		}
+		
+		
+		function testDonateBlood(){
+			console.log("Testing Donate Blood Start");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=DONATE_BLOOD&USER_ID=45&REQUEST_ID=27&BLOOD_GROUP=9',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Donate Blood End");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Donate Blood End");
+				}
+			});
+		}
+		
+		function testDonateView(){
+			console.log("Testing Donate view Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=DONATE_VIEW&DONATE_ID=4',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Donate view Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Donate view Ends");
+				}
+			});
+		}
+		function testDonateUpdate(){
+			console.log("Testing Update Donate Blood Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=DONATE_UPDATE&BLOOD_GROUP=9&STATUS=2&DONATE_ID=2',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Update Donate Blood Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("TestingUpdate Donate Blood Ends");
+				}
+			});
+		}
+		
+		function testDonateDelete(){
+			console.log("Testing Donate Blood Delete Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=DONATE_DELETE&DONATE_ID=2&STATUS=2',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Donate Blood Delete Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Donate Blood Delete Ends");
+				}
+			});
+		}
+		
+		
+		function testCard(){
+			console.log("Testing Card Start");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=CARD&DONATE_ID=16&REQUEST_ID=18',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Card End");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Card End");
+				}
+			});
+		}
+		function testCardDelete(){
+			console.log("Testing Card Delete Starts");
+			$.ajax({
+				url: 'http://localhost/BugDev/blood_donate/server.php',
+				data: 'REQUEST_TYPE=CARD_DELETE&CARD_ID=2&STATUS=2',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data){
+					//data = JSON.parse(data);
+					console.log(data);
+					console.log("Testing Card Delete Ends");
+				},
+				error:function(a, b, c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+					console.log("Testing Card Delete Ends");
+				}
+			});
+		}
+	</script>
+	</head>
+<body>
+
+</body>
+</html>
